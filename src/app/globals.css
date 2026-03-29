@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  /* Paleta del logo */
+  --color-coral: #f06050;
+  --color-coral-light: #f47868;
+  --color-coral-dark: #d84e40;
+  --color-rosa: #d05070;
+  --color-rosa-light: #e06080;
+  --color-rosa-dark: #b84060;
+  --color-purpura: #804070;
+  --color-purpura-light: #9a5088;
+  --color-purpura-dark: #503060;
+  --color-purpura-deep: #403050;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gradient text - matches logo gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #f06050, #d05070, #804070);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle fade-in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
 }
